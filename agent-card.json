@@ -1,0 +1,65 @@
+{
+  "name": "Customer Support Agent",
+  "description": "Answers customer support questions, retrieves order context, and escalates unresolved issues to a human team.",
+  "supportedInterfaces": [
+    {
+      "url": "https://api.example.com/a2a/customer-support",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "provider": {
+    "organization": "Example Inc.",
+    "url": "https://example.com"
+  },
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": true,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "resolve-customer-support-request",
+      "name": "Resolve customer support request",
+      "description": "Classifies a customer support request, gathers needed context, proposes a resolution, and escalates when confidence is low.",
+      "tags": [
+        "support",
+        "orders",
+        "returns"
+      ],
+      "examples": [
+        "Use Resolve customer support request to complete a user request."
+      ]
+    }
+  ],
+  "securitySchemes": {
+    "oauth2": {
+      "oauth2SecurityScheme": {
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://api.example.com/a2a/customer-support/oauth/token",
+            "scopes": {
+              "agent.invoke": "Invoke agent skills"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [
+        "agent.invoke"
+      ]
+    }
+  ]
+}
