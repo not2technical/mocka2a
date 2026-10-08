@@ -1,4 +1,5 @@
 {
+  "url": "https://api.example.com/a2a/customer-support",
   "name": "Customer Support Agent",
   "description": "Answers customer support questions, retrieves order context, and escalates unresolved issues to a human team.",
   "supportedInterfaces": [
@@ -14,8 +15,8 @@
   },
   "version": "1.0.0",
   "capabilities": {
-    "streaming": false,
-    "pushNotifications": false,
+    "streaming": true,
+    "pushNotifications": true,
     "extendedAgentCard": false
   },
   "defaultInputModes": [
@@ -38,6 +39,27 @@
       ],
       "examples": [
         "Use Resolve customer support request to complete a user request."
+      ]
+    }
+  ],
+  "securitySchemes": {
+    "oauth2": {
+      "oauth2SecurityScheme": {
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://api.example.com/a2a/customer-support/oauth/token",
+            "scopes": {
+              "agent.invoke": "Invoke agent skills"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [
+        "agent.invoke"
       ]
     }
   ]
