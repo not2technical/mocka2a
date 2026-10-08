@@ -14,8 +14,8 @@
   },
   "version": "1.0.0",
   "capabilities": {
-    "streaming": true,
-    "pushNotifications": true,
+    "streaming": false,
+    "pushNotifications": false,
     "extendedAgentCard": false
   },
   "defaultInputModes": [
@@ -38,27 +38,6 @@
       ],
       "examples": [
         "Use Resolve customer support request to complete a user request."
-      ]
-    }
-  ],
-  "securitySchemes": {
-    "oauth2": {
-      "oauth2SecurityScheme": {
-        "flows": {
-          "clientCredentials": {
-            "tokenUrl": "https://api.example.com/a2a/customer-support/oauth/token",
-            "scopes": {
-              "agent.invoke": "Invoke agent skills"
-            }
-          }
-        }
-      }
-    }
-  },
-  "security": [
-    {
-      "oauth2": [
-        "agent.invoke"
       ]
     }
   ]
