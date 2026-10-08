@@ -1,31 +1,36 @@
 {
-  "url": "https://raw.githubusercontent.com/not2technical/mocka2a/main/.well-known/agent-card.json",
   "name": "Customer Support Agent",
   "description": "Answers customer support questions, retrieves order context, and escalates unresolved issues to a human team.",
-  "supportedInterfaces": [
-    {
-      "url": "https://api.example.com/a2a/customer-support",
-      "protocolBinding": "JSONRPC",
-      "protocolVersion": "1.0"
-    }
-  ],
-  "provider": {
-    "organization": "Example Inc.",
-    "url": "https://example.com"
-  },
+  "url": "https://raw.githubusercontent.com/not2technical/mocka2a/main/.well-known/agent-card.json",
   "version": "1.0.0",
+  "protocolVersion": "0.3.0",
+  "preferredTransport": "JSONRPC",
   "capabilities": {
     "streaming": true,
-    "pushNotifications": true,
-    "extendedAgentCard": false
+    "pushNotifications": false,
+    "stateTransitionHistory": false
   },
   "defaultInputModes": [
-    "text/plain",
-    "application/json"
+    "text/plain"
   ],
   "defaultOutputModes": [
-    "text/plain",
-    "application/json"
+    "text/plain"
+  ],
+  "securitySchemes": {
+    "oauth2": {
+      "type": "oauth2",
+      "flows": {
+        "clientCredentials": {
+          "tokenUrl": "https://api.example.com/a2a/customer-support/oauth/token",
+          "scopes": {}
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": []
+    }
   ],
   "skills": [
     {
@@ -39,27 +44,6 @@
       ],
       "examples": [
         "Use Resolve customer support request to complete a user request."
-      ]
-    }
-  ],
-  "securitySchemes": {
-    "oauth2": {
-      "oauth2SecurityScheme": {
-        "flows": {
-          "clientCredentials": {
-            "tokenUrl": "https://api.example.com/a2a/customer-support/oauth/token",
-            "scopes": {
-              "agent.invoke": "Invoke agent skills"
-            }
-          }
-        }
-      }
-    }
-  },
-  "security": [
-    {
-      "oauth2": [
-        "agent.invoke"
       ]
     }
   ]
