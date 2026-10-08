@@ -1,5 +1,5 @@
 {
-  "url": "https://api.example.com/a2a/customer-support",
+  "url": "https://raw.githubusercontent.com/not2technical/mocka2a/main/.well-known/agent-card.json",
   "name": "Customer Support Agent",
   "description": "Answers customer support questions, retrieves order context, and escalates unresolved issues to a human team.",
   "supportedInterfaces": [
